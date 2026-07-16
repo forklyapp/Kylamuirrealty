@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kyla Muir · Utah County Real Estate | Real Estate Essentials</title>
+<meta name="description" content="Kyla Muir helps Utah County families buy and sell homes with white-glove detail. Free home value reports, buyer & seller guidance. Santaquin, Payson, Spanish Fork & beyond.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,420;0,9..144,560;1,9..144,380;1,9..144,480&family=Allison&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FDFBFA;
+  --paper-2:#F7F1EE;
+  --ink:#1A1518;
+  --ink-soft:#5C5257;
+  --rosey:#F2AFC6;
+  --rosey-deep:#E68BAC;
+  --flamingo:#D9487F;
+  --flamingo-dark:#B93465;
+  --chrome:#9AA0A8;
+  --chrome-lt:#C9CDD3;
+  --garage:#211B21;
+  --ree-blue:#35B5E8;
+  --radius:14px;
+  --shadow:0 18px 50px -18px rgba(26,21,24,.22);
+  --font-display:"Fraunces",serif;
+  --font-body:"Archivo",sans-serif;
+  --font-script:"Allison",cursive;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);font-weight:420;line-height:1.08;letter-spacing:-.01em}
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--flamingo)}
+.script{font-family:var(--font-script);font-weight:400;color:var(--flamingo)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+section{padding:clamp(72px,9vw,130px) 0}
+:focus-visible{outline:3px solid var(--flamingo);outline-offset:3px;border-radius:4px}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(253,251,250,.86);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,21,24,.07);transition:transform .3s}
+.nav-in{max-width:1180px;margin:0 auto;padding:14px clamp(20px,4vw,48px);display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.brand .script{font-size:2rem;line-height:1;color:var(--ink)}
+.brand small{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.nav-links{display:flex;gap:26px;margin-left:auto;align-items:center}
+.nav-links a{text-decoration:none;font-size:.85rem;font-weight:500;color:var(--ink-soft);transition:color .2s}
+.nav-links a:hover{color:var(--flamingo)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--flamingo);color:#fff;border:none;cursor:pointer;font-family:var(--font-body);font-weight:600;font-size:.9rem;padding:13px 26px;border-radius:100px;text-decoration:none;transition:background .2s,transform .2s;box-shadow:0 8px 24px -8px rgba(217,72,127,.55)}
+.btn:hover{background:var(--flamingo-dark);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:none;border:1.5px solid rgba(26,21,24,.25)}
+.btn.ghost:hover{border-color:var(--flamingo);color:var(--flamingo);background:transparent}
+.btn.sm{padding:10px 20px;font-size:.82rem}
+.nav .btn{margin-left:6px}
+.menu-btn{display:none;margin-left:auto;background:none;border:none;cursor:pointer;padding:8px}
+.menu-btn span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px}
+
+/* ---------- HERO / ROSEY SCENE ---------- */
+.scene{height:340vh;position:relative}
+.scene-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.blueprint-grid{position:absolute;inset:0;opacity:0;transition:opacity .4s;pointer-events:none;
+  background-image:linear-gradient(rgba(217,72,127,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(217,72,127,.07) 1px,transparent 1px);
+  background-size:44px 44px}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1.3fr;gap:clamp(24px,4vw,64px);align-items:center;padding-top:70px}
+.hero-copy h1{font-size:clamp(2.6rem,5.4vw,4.6rem);margin:18px 0 20px}
+.hero-copy h1 em{font-style:italic;font-weight:480;color:var(--flamingo)}
+.hero-copy p{color:var(--ink-soft);font-size:1.06rem;max-width:44ch;margin-bottom:30px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.car-stage{position:relative}
+.car-stage svg{width:100%;height:auto;overflow:visible}
+.stage-captions{position:relative;height:64px;margin-top:6px}
+.caption{position:absolute;inset:0;display:flex;align-items:flex-start;gap:12px;opacity:0;transition:opacity .45s;font-size:.98rem;color:var(--ink-soft)}
+.caption.on{opacity:1}
+.caption b{color:var(--ink);font-weight:600}
+.caption .tick{flex:none;width:34px;height:1.5px;background:var(--flamingo);margin-top:.72em}
+.scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);opacity:.8;transition:opacity .4s}
+.scroll-hint::after{content:"";display:block;width:1.5px;height:34px;background:linear-gradient(var(--flamingo),transparent);margin:8px auto 0;animation:drip 1.8s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* car svg states driven by --p custom prop set in JS */
+#rosey .paint{transition:opacity .1s linear}
+#rosey .anno{opacity:0;transition:opacity .5s}
+#rosey .anno text{font-family:var(--font-body);font-size:15px;font-weight:600;letter-spacing:.06em;fill:var(--flamingo)}
+#rosey .anno .leader{stroke:var(--flamingo);stroke-width:1.4;stroke-dasharray:4 4;fill:none}
+#rosey .lines{stroke:var(--ink);fill:none}
+#rosey .chromeln{stroke:var(--chrome);fill:none}
+
+/* ---------- TRUST STRIP ---------- */
+.strip{border-top:1px solid rgba(26,21,24,.08);border-bottom:1px solid rgba(26,21,24,.08);background:var(--paper-2)}
+.strip .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-top:40px;padding-bottom:40px}
+.stat{text-align:center}
+.stat b{font-family:var(--font-display);font-size:2.3rem;font-weight:480;display:block;color:var(--ink)}
+.stat span{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ---------- FUNNEL CARDS ---------- */
+.sec-head{max-width:640px;margin-bottom:clamp(36px,5vw,60px)}
+.sec-head h2{font-size:clamp(2rem,3.6vw,3rem);margin-top:14px}
+.sec-head p{color:var(--ink-soft);margin-top:14px}
+.funnels{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1px solid rgba(26,21,24,.08);border-radius:var(--radius);padding:34px 30px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--rosey-deep)}
+.card h3{font-size:1.45rem}
+.card p{color:var(--ink-soft);font-size:.94rem;flex:1}
+.card .glyph{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--rosey),var(--rosey-deep));display:flex;align-items:center;justify-content:center;color:#fff}
+.card .btn{align-self:flex-start}
+
+/* home value inline form */
+.hv{background:linear-gradient(120deg,var(--garage),#3A2733 60%,#5A2B44);border-radius:calc(var(--radius) + 6px);padding:clamp(36px,5vw,64px);color:#fff;margin-top:26px;position:relative;overflow:hidden}
+.hv::after{content:"Rosey";font-family:var(--font-script);font-size:15rem;color:rgba(242,175,198,.07);position:absolute;right:-20px;bottom:-70px;pointer-events:none}
+.hv h3{font-size:clamp(1.7rem,3vw,2.4rem);max-width:20ch}
+.hv p{color:rgba(255,255,255,.72);margin:12px 0 26px;max-width:52ch}
+.hv form{display:grid;grid-template-columns:2fr 1.2fr 1.2fr auto;gap:12px;position:relative;z-index:1}
+.hv input{padding:15px 18px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.09);color:#fff;font-family:var(--font-body);font-size:.95rem}
+.hv input::placeholder{color:rgba(255,255,255,.55)}
+
+/* ---------- LISTINGS ---------- */
+.listings{background:var(--paper-2)}
+.lst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.lst{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(26,21,24,.08);box-shadow:var(--shadow);text-decoration:none;transition:transform .25s}
+.lst:hover{transform:translateY(-4px)}
+.lst .photo{aspect-ratio:4/2.7;background:linear-gradient(135deg,var(--rosey) 0%,var(--chrome-lt) 100%);position:relative;display:flex;align-items:center;justify-content:center}
+.lst .photo svg{width:34%;opacity:.5}
+.lst .badge{position:absolute;top:12px;left:12px;background:rgba(26,21,24,.82);color:#fff;font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:100px}
+.lst .body{padding:20px 22px 24px}
+.lst .price{font-family:var(--font-display);font-size:1.5rem;font-weight:480}
+.lst .addr{color:var(--ink-soft);font-size:.9rem;margin:4px 0 10px}
+.lst .meta{display:flex;gap:16px;font-size:.8rem;font-weight:600;color:var(--ink)}
+.lst .meta span{color:var(--ink-soft);font-weight:400}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,5vw,70px);align-items:center}
+.portrait{aspect-ratio:4/5;border-radius:calc(var(--radius) + 8px);background:linear-gradient(160deg,var(--rosey),var(--rosey-deep));position:relative;overflow:hidden;box-shadow:var(--shadow);display:flex;align-items:flex-end;justify-content:center}
+.portrait .ph{color:rgba(255,255,255,.85);text-align:center;padding:30px;font-size:.85rem;font-weight:500}
+.portrait .ph .script{font-size:3.4rem;color:#fff;display:block;line-height:1}
+.about-copy h2{font-size:clamp(2rem,3.4vw,2.9rem)}
+.about-copy p{color:var(--ink-soft);margin-top:16px}
+.about-copy .sig{font-family:var(--font-script);font-size:3rem;color:var(--ink);margin-top:26px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{font-size:.78rem;font-weight:600;padding:8px 16px;border-radius:100px;border:1.5px solid rgba(26,21,24,.15);color:var(--ink-soft)}
+
+/* ---------- TESTIMONIALS (garage) ---------- */
+.garage{background:var(--garage);color:#fff}
+.garage .eyebrow{color:var(--rosey)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.quote{border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:30px 28px;background:rgba(255,255,255,.03)}
+.quote .stars{color:var(--rosey);letter-spacing:.2em;font-size:.85rem}
+.quote p{font-family:var(--font-display);font-style:italic;font-weight:380;font-size:1.05rem;line-height:1.5;margin:16px 0 20px;color:rgba(255,255,255,.92)}
+.quote cite{font-style:normal;font-size:.82rem;color:rgba(255,255,255,.6);font-weight:500}
+
+/* ---------- CONTACT ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px)}
+.contact-info h2{font-size:clamp(2rem,3.4vw,2.9rem)}
+.contact-info p{color:var(--ink-soft);margin-top:14px;max-width:42ch}
+.c-lines{margin-top:30px;display:grid;gap:14px}
+.c-line{display:flex;align-items:center;gap:14px;font-weight:600;text-decoration:none;transition:color .2s}
+.c-line:hover{color:var(--flamingo)}
+.c-line .glyph{width:42px;height:42px;border-radius:11px;background:var(--paper-2);display:flex;align-items:center;justify-content:center;color:var(--flamingo);flex:none}
+form.panel{background:#fff;border:1px solid rgba(26,21,24,.08);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow);display:grid;gap:14px}
+.panel label{font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.panel input,.panel textarea,.panel select{width:100%;padding:14px 16px;border-radius:10px;border:1.5px solid rgba(26,21,24,.14);font-family:var(--font-body);font-size:.95rem;background:var(--paper);transition:border-color .2s}
+.panel input:focus,.panel textarea:focus,.panel select:focus{outline:none;border-color:var(--flamingo)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* ---------- MODAL FUNNEL ---------- */
+.modal{position:fixed;inset:0;z-index:80;display:none;align-items:flex-end;justify-content:center;background:rgba(26,21,24,.5);backdrop-filter:blur(4px)}
+.modal.open{display:flex}
+.sheet{background:var(--paper);width:min(560px,100%);max-height:88vh;overflow:auto;border-radius:22px 22px 0 0;padding:34px 32px 40px;animation:up .35s cubic-bezier(.2,.9,.3,1)}
+@keyframes up{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+.sheet h3{font-size:1.6rem;margin:6px 0 4px}
+.sheet .sub{color:var(--ink-soft);font-size:.92rem;margin-bottom:22px}
+.dots{display:flex;gap:8px;margin-bottom:20px}
+.dot{height:5px;flex:1;border-radius:5px;background:rgba(26,21,24,.12);transition:background .3s}
+.dot.on{background:var(--flamingo)}
+.step{display:none;gap:14px}
+.step.on{display:grid}
+.opts{display:grid;gap:10px}
+.opt{border:1.5px solid rgba(26,21,24,.14);border-radius:11px;padding:14px 18px;cursor:pointer;font-weight:500;font-size:.94rem;background:#fff;transition:all .15s;text-align:left;font-family:var(--font-body)}
+.opt:hover{border-color:var(--rosey-deep)}
+.opt.sel{border-color:var(--flamingo);background:rgba(217,72,127,.06);color:var(--flamingo)}
+.sheet-nav{display:flex;justify-content:space-between;margin-top:24px;gap:12px}
+.x{position:sticky;top:0;margin-left:auto;display:flex;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink-soft);line-height:1}
+.done{display:none;text-align:center;padding:30px 10px}
+.done.on{display:block}
+.done .script{font-size:4rem;display:block}
+.done p{color:var(--ink-soft);margin-top:10px}
+.note{font-size:.78rem;color:var(--ink-soft);opacity:.8;margin-top:8px}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--garage);color:rgba(255,255,255,.7);padding:60px 0 40px;font-size:.85rem}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12)}
+.f-brand .script{font-size:2.6rem;color:#fff;line-height:1}
+.ree{margin-top:14px;line-height:1.3}
+.ree .re-script{font-family:var(--font-script);font-size:1.6rem;color:#fff}
+.ree .re-caps{font-weight:700;letter-spacing:.12em;color:var(--ree-blue);font-size:.95rem}
+footer h4{color:#fff;font-family:var(--font-body);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+footer a{text-decoration:none;transition:color .2s}
+footer a:hover{color:var(--rosey)}
+.f-links{display:grid;gap:9px}
+.legal{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;padding-top:26px;font-size:.75rem;color:rgba(255,255,255,.45)}
+.eho{display:flex;align-items:center;gap:10px}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:12px;padding-top:88px}
+  .hero-copy p{max-width:none}
+  .funnels,.lst-grid,.quotes{grid-template-columns:1fr}
+  .strip .wrap{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .stat b{font-size:1.6rem}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .hv form{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .menu-btn{display:block}
+  .nav-links.open{display:grid;position:absolute;top:100%;left:0;right:0;background:var(--paper);padding:22px;gap:18px;border-bottom:1px solid rgba(26,21,24,.1)}
+  .scene{height:280vh}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .scene{height:auto}
+  .scene-sticky{position:static;height:auto;padding:110px 0 60px}
+  .scroll-hint{display:none}
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">
+      <span class="script">Kyla Muir</span>
+      <small>Realty</small>
+    </a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="#buy">Buy</a>
+      <a href="#sell">Sell</a>
+      <a href="#listings">Listings</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="btn sm" href="#home-value">Free home value</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO: ROSEY SCROLL SCENE ============ -->
+<div class="scene" id="top">
+  <div class="scene-sticky">
+    <div class="blueprint-grid" id="bpGrid"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Utah County · Real Estate Essentials</span>
+        <h1>The agent with the <em>pink Bel&nbsp;Air.</em></h1>
+        <p>I'm Kyla Muir. I help Utah County families buy and sell homes with white-glove attention to every detail — and yes, Rosey has been known to show up at closings.</p>
+        <div class="hero-ctas">
+          <a class="btn" href="#home-value">What's my home worth?</a>
+          <a class="btn ghost" href="#contact">Let's talk</a>
+        </div>
+      </div>
+
+      <div class="car-stage">
+        <!-- Stylized '57 Bel Air — replace with traced artwork of Rosey when photos arrive -->
+        <svg id="rosey" viewBox="0 0 1060 420" role="img" aria-label="Illustration of Rosey, Kyla's pink 1957 Chevy Bel Air, deconstructing into a blueprint as you scroll">
+          <g id="carBody">
+            <!-- painted fills -->
+            <g class="paint">
+              <path fill="var(--rosey)" d="M64 300 C40 292 36 262 50 236 C58 220 70 210 96 206 C180 196 300 192 420 192 L620 192 C700 192 850 196 950 208 C990 214 1010 228 1016 248 C1022 270 1012 292 988 298 L920 302 L64 300 Z"/>
+              <path fill="var(--rosey-deep)" d="M250 192 L300 130 C310 118 322 112 340 112 L560 112 C578 112 590 118 600 130 L648 192 Z"/>
+              <path fill="#EAF3F8" d="M312 182 L346 130 L438 130 L438 182 Z"/>
+              <path fill="#EAF3F8" d="M456 130 L560 130 C570 130 576 134 582 142 L612 182 L456 182 Z"/>
+              <polygon fill="var(--chrome-lt)" opacity=".7" points="330,236 150,236 96,268 330,258"/>
+            </g>
+            <!-- permanent linework -->
+            <g class="lines" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M64 300 C40 292 36 262 50 236 C58 220 70 210 96 206 C180 196 300 192 420 192 L620 192 C700 192 850 196 950 208 C990 214 1010 228 1016 248 C1022 270 1012 292 988 298 L920 302"/>
+              <path d="M250 192 L300 130 C310 118 322 112 340 112 L560 112 C578 112 590 118 600 130 L648 192"/>
+              <path d="M312 182 L346 130 M438 130 L438 182 M456 182 L456 130 M612 182 L582 142 C576 134 570 130 560 130"/>
+              <path d="M534 192 L534 262 M540 214 L560 214"/> <!-- door + handle -->
+              <path d="M64 300 L150 300 M330 300 L700 300 M880 300 L920 302"/> <!-- rocker -->
+            </g>
+            <!-- chrome trim -->
+            <g class="chromeln" stroke-width="4" stroke-linecap="round">
+              <path d="M1000 240 L330 236"/>
+              <path d="M330 236 L96 268"/>
+              <path d="M330 236 L330 258 L110 262"/>
+              <path d="M60 296 L120 296"/><path d="M960 296 L1014 288"/>
+            </g>
+            <circle class="chromeln" cx="1002" cy="222" r="9" stroke-width="3.5" fill="#fff"/>
+            <rect class="paint" x="40" y="228" width="10" height="18" rx="4" fill="var(--flamingo)"/>
+            <!-- wheels -->
+            <g id="wheelR">
+              <circle cx="240" cy="300" r="52" fill="#241E24"/>
+              <circle cx="240" cy="300" r="35" fill="none" stroke="#F4F1EE" stroke-width="9"/>
+              <circle cx="240" cy="300" r="16" fill="var(--chrome-lt)"/>
+              <path d="M240 288 L240 312 M228 300 L252 300" stroke="#8A8F97" stroke-width="3"/>
+            </g>
+            <g id="wheelF">
+              <circle cx="790" cy="300" r="52" fill="#241E24"/>
+              <circle cx="790" cy="300" r="35" fill="none" stroke="#F4F1EE" stroke-width="9"/>
+              <circle cx="790" cy="300" r="16" fill="var(--chrome-lt)"/>
+              <path d="M790 288 L790 312 M778 300 L802 300" stroke="#8A8F97" stroke-width="3"/>
+            </g>
+          </g>
+          <!-- blueprint annotations -->
+          <g class="anno" id="anno">
+            <path class="leader" d="M640 238 L700 176 L790 176"/>
+            <text x="798" y="181">chrome spear</text>
+            <path class="leader" d="M110 210 L84 150 L150 150"/>
+            <text x="158" y="155">'57 tailfin</text>
+            <path class="leader" d="M240 356 L240 388 L300 388"/>
+            <text x="308" y="393">whitewalls</text>
+            <text x="878" y="368" style="font-family:var(--font-script);font-size:44px;fill:var(--flamingo);font-weight:400">Rosey</text>
+            <text x="880" y="392" style="font-size:12px;letter-spacing:.18em;fill:var(--ink-soft)">EST. 1957 · SANTAQUIN, UT</text>
+          </g>
+        </svg>
+
+        <div class="stage-captions" aria-live="polite">
+          <div class="caption on" data-stage="0"><span class="tick"></span><span><b>Meet Rosey.</b> A '57 Bel Air, and the most recognizable ride in Utah County real estate.</span></div>
+          <div class="caption" data-stage="1"><span class="tick"></span><span>A great deal is <b>a hundred small parts,</b> perfectly placed.</span></div>
+          <div class="caption" data-stage="2"><span class="tick"></span><span>I obsess over every one of them — <b>so you never have to.</b></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint" id="scrollHint">Scroll</div>
+  </div>
+</div>
+
+<!-- ============ TRUST STRIP ============ -->
+<div class="strip">
+  <div class="wrap">
+    <!-- TODO: replace with Kyla's real numbers before launch -->
+    <div class="stat"><b>150+</b><span>Families helped</span></div>
+    <div class="stat"><b>$40M+</b><span>Homes sold</span></div>
+    <div class="stat"><b>5.0 ★</b><span>Client rating</span></div>
+  </div>
+</div>
+
+<!-- ============ FUNNELS ============ -->
+<section id="buy">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Work with Kyla</span>
+      <h2>Buying, selling, or just curious — start here.</h2>
+      <p>Answer a few quick questions and Kyla will reach out personally, usually the same day.</p>
+    </div>
+    <div class="funnels">
+      <div class="card">
+        <div class="glyph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
+        <h3>I want to buy</h3>
+        <p>From first-time buyers to forever homes — get a game plan for your budget, your timeline, and today's Utah County market.</p>
+        <button class="btn sm" onclick="openFunnel('buyer')">Start buying</button>
+      </div>
+      <div class="card" id="sell">
+        <div class="glyph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9l-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M12 11v6M9 14h6"/></svg></div>
+        <h3>I want to sell</h3>
+        <p>Pricing strategy, staging, pro photography (Rosey optional), and marketing that gets your home in front of serious buyers.</p>
+        <button class="btn sm" onclick="openFunnel('seller')">Start selling</button>
+      </div>
+      <div class="card">
+        <div class="glyph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>What's my home worth?</h3>
+        <p>Get a free, no-pressure home value report built from real local comps — not a website's guess.</p>
+        <button class="btn sm" onclick="document.getElementById('home-value').scrollIntoView({behavior:'smooth'})">Get my report</button>
+      </div>
+    </div>
+
+    <!-- home value banner -->
+    <div class="hv" id="home-value">
+      <h3>Your free home value report</h3>
+      <p>Kyla hand-pulls comparable sales in your neighborhood and sends you a real number with real reasoning — no algorithms, no spam, no obligation.</p>
+      <form data-type="home_value">
+        <input type="text" name="address" placeholder="Property address" required autocomplete="street-address">
+        <input type="text" name="name" placeholder="Your name" required autocomplete="name">
+        <input type="tel" name="phone" placeholder="Phone or email" required>
+        <input type="text" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+        <button class="btn" type="submit">Send my report</button>
+      </form>
+      <p class="note" data-status style="color:rgba(255,255,255,.75)"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LISTINGS ============ -->
+<section class="listings" id="listings">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">On the market</span>
+      <h2>Featured listings</h2>
+      <p>A few of the homes Kyla is representing right now. Want a private tour? <a href="#contact" style="color:var(--flamingo);font-weight:600">Reach out.</a></p>
+    </div>
+    <div class="lst-grid" id="lstGrid"></div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="portrait">
+      <!-- TODO: replace this placeholder block with Kyla's headshot: <img src="/kyla.jpg" alt="Kyla Muir"> -->
+      <div class="ph"><span class="script">Kyla</span>Headshot goes here — drop in her favorite pink-top photo</div>
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow">About Kyla</span>
+      <h2>Big-market marketing. Small-town handshake.</h2>
+      <p>Kyla Muir is a Utah County real estate agent with Real Estate Essentials, serving Santaquin, Payson, Salem, Spanish Fork, and communities up and down the Wasatch Front. You may have seen her on local TV, on YouTube — or cruising Main Street in a pink 1957 Bel Air named Rosey.</p>
+      <p>Behind the fun is a fierce negotiator who treats every family's move like her own: honest pricing conversations, relentless follow-through, and communication you never have to chase.</p>
+      <div class="chips">
+        <span class="chip">Santaquin</span><span class="chip">Payson</span><span class="chip">Salem</span><span class="chip">Spanish Fork</span><span class="chip">Utah County</span><span class="chip">Wasatch Front</span>
+      </div>
+      <div class="sig">Kyla Muir</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="garage">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Client stories</span>
+      <h2>People remember the pink car.<br>They come back for the results.</h2>
+    </div>
+    <!-- TODO: PLACEHOLDER QUOTES — replace with real client testimonials (with permission) before launch -->
+    <div class="quotes">
+      <div class="quote"><div class="stars">★★★★★</div><p>"Kyla sold our home in nine days, over asking. She handled every hiccup before we even knew it existed."</p><cite>— Placeholder · Santaquin, UT</cite></div>
+      <div class="quote"><div class="stars">★★★★★</div><p>"As first-time buyers we were terrified. Kyla explained everything, fought for us on repairs, and made it fun."</p><cite>— Placeholder · Payson, UT</cite></div>
+      <div class="quote"><div class="stars">★★★★★</div><p>"She answers her phone. Every time. If you've worked with other agents, you know how rare that is."</p><cite>— Placeholder · Spanish Fork, UT</cite></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow">Say hello</span>
+      <h2>Let's find your next front door.</h2>
+      <p>Call, text, or send a note — Kyla reads every message herself and typically responds within a few hours.</p>
+      <div class="c-lines">
+        <a class="c-line" href="tel:8017879540"><span class="glyph"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>801-787-9540</a>
+        <a class="c-line" href="mailto:kylamuirrealty@gmail.com"><span class="glyph"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></span>kylamuirrealty@gmail.com</a>
+        <span class="c-line"><span class="glyph"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Santaquin · Utah County, UT</span>
+      </div>
+    </div>
+    <form class="panel" data-type="contact">
+      <div class="row2">
+        <div><label for="cn">Name</label><input id="cn" name="name" required autocomplete="name"></div>
+        <div><label for="cp">Phone or email</label><input id="cp" name="phone" required></div>
+      </div>
+      <div><label for="ci">I'm interested in</label>
+        <select id="ci" name="interest"><option>Buying a home</option><option>Selling a home</option><option>Both</option><option>Just have a question</option></select>
+      </div>
+      <div><label for="cm">Message</label><textarea id="cm" name="message" rows="4" placeholder="Tell Kyla a little about what you're looking for…"></textarea></div>
+      <input type="text" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+      <button class="btn" type="submit">Send message</button>
+      <p class="note" data-status></p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <span class="script">Kyla Muir</span>
+        <div class="ree">
+          <div><span class="re-script">Real Estate</span></div>
+          <div><span class="re-caps">ESSENTIALS</span></div>
+          <p style="margin-top:10px;max-width:36ch">Kyla Muir is a licensed real estate agent with Real Estate Essentials, Santaquin, Utah.<br>UT License #: <strong>[ADD LICENSE NUMBER]</strong></p>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <div class="f-links">
+          <a href="#buy">Buy a home</a><a href="#sell">Sell a home</a><a href="#home-value">Home value report</a><a href="#listings">Listings</a><a href="#about">About Kyla</a>
+        </div>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <div class="f-links">
+          <a href="tel:8017879540">801-787-9540</a>
+          <a href="mailto:kylamuirrealty@gmail.com">kylamuirrealty@gmail.com</a>
+          <a href="https://www.youtube.com/@kylamuirtherealestate" target="_blank" rel="noopener">YouTube</a>
+          <a href="#" target="_blank" rel="noopener">Instagram</a>
+          <a href="#" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="legal">
+      <div class="eho">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-8 9 8"/><path d="M5 10v11h14V10"/><path d="M9 14h6M9 17h6"/></svg>
+        <span>Equal Housing Opportunity</span>
+      </div>
+      <span>© <span id="yr"></span> Kyla Muir Realty. All rights reserved.</span>
+      <a href="https://muirwebco.com" target="_blank" rel="noopener">Website by Muir Web Co.</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FUNNEL MODAL ============ -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="sheet">
+    <button class="x" aria-label="Close" onclick="closeFunnel()">×</button>
+    <span class="eyebrow" id="mEyebrow">Buying</span>
+    <h3 id="mTitle">Let's find your home</h3>
+    <p class="sub" id="mSub">Three quick questions, then Kyla takes it from here.</p>
+    <div class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+    <form id="funnelForm">
+      <div class="step on" data-step="0"></div>
+      <div class="step" data-step="1"></div>
+      <div class="step" data-step="2">
+        <div><label>Name</label><input name="name" required autocomplete="name"></div>
+        <div><label>Phone</label><input name="phone" type="tel" required autocomplete="tel"></div>
+        <div><label>Email</label><input name="email" type="email" autocomplete="email"></div>
+        <input type="text" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+      </div>
+      <div class="sheet-nav">
+        <button type="button" class="btn ghost sm" id="backBtn" onclick="stepFunnel(-1)" style="visibility:hidden">Back</button>
+        <button type="button" class="btn sm" id="nextBtn" onclick="stepFunnel(1)">Next</button>
+      </div>
+      <p class="note" data-status></p>
+    </form>
+    <div class="done" id="funnelDone">
+      <span class="script">Thank you!</span>
+      <p>Kyla will reach out shortly — usually the same day.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================= CONFIG ================= */
+const LEAD_ENDPOINT = "/api/lead"; // Vercel serverless function (see api/lead.js)
+
+/* ================= ROSEY SCROLL SCENE ================= */
+(function(){
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const scene = document.querySelector(".scene");
+  const car = document.getElementById("carBody");
+  const paint = document.querySelectorAll("#rosey .paint");
+  const anno = document.getElementById("anno");
+  const grid = document.getElementById("bpGrid");
+  const hint = document.getElementById("scrollHint");
+  const caps = document.querySelectorAll(".caption");
+  const wheels = [document.getElementById("wheelR"), document.getElementById("wheelF")];
+  if(reduced || !scene) return;
+
+  const clamp = (v,a,b)=>Math.min(b,Math.max(a,v));
+  const ramp = (p,a,b)=>clamp((p-a)/(b-a),0,1);
+  let ticking = false;
+
+  function render(){
+    ticking = false;
+    const max = scene.offsetHeight - innerHeight;
+    const p = clamp((scrollY - scene.offsetTop) / max, 0, 1);
+
+    // paint fades away 0.18 → 0.55
+    const fill = 1 - ramp(p, .18, .55);
+    paint.forEach(el=>el.style.opacity = fill);
+
+    // car drives forward a touch, wheels roll
+    const drive = p * 70;
+    car.style.transform = `translateX(${drive}px)`;
+    wheels.forEach(w=>{
+      const c = w.querySelector("circle");
+      w.style.transformOrigin = `${c.getAttribute("cx")}px ${c.getAttribute("cy")}px`;
+      w.style.transform = `rotate(${drive * 1.15}deg)`;
+    });
+
+    // blueprint mode
+    anno.style.opacity = ramp(p, .45, .7);
+    grid.style.opacity = ramp(p, .5, .8) * 1;
+    hint.style.opacity = p > .06 ? 0 : .8;
+
+    // captions
+    const stage = p < .33 ? 0 : p < .66 ? 1 : 2;
+    caps.forEach(c=>c.classList.toggle("on", +c.dataset.stage === stage));
+  }
+  addEventListener("scroll", ()=>{ if(!ticking){ requestAnimationFrame(render); ticking = true; }}, {passive:true});
+  addEventListener("resize", render);
+  render();
+})();
+
+/* ================= LISTINGS (demo data — swap for Supabase, see README) ================= */
+const DEMO_LISTINGS = [
+  {price:"$489,000", addr:"742 Maple Bend Dr · Santaquin, UT", beds:4, baths:3, sqft:"2,450", badge:"Sample listing"},
+  {price:"$425,000", addr:"118 Orchard Row · Payson, UT", beds:3, baths:2, sqft:"1,880", badge:"Sample listing"},
+  {price:"$559,900", addr:"2094 Canyon Gate Ln · Spanish Fork, UT", beds:5, baths:3, sqft:"3,120", badge:"Sample listing"},
+];
+(function(){
+  const grid = document.getElementById("lstGrid");
+  const house = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>';
+  grid.innerHTML = DEMO_LISTINGS.map(l=>`
+    <a class="lst" href="#contact">
+      <div class="photo"><span class="badge">${l.badge}</span>${house}</div>
+      <div class="body">
+        <div class="price">${l.price}</div>
+        <div class="addr">${l.addr}</div>
+        <div class="meta"><b>${l.beds}</b><span> bd</span> <b>${l.baths}</b><span> ba</span> <b>${l.sqft}</b><span> sqft</span></div>
+      </div>
+    </a>`).join("");
+})();
+
+/* ================= LEAD SUBMISSION ================= */
+async function sendLead(type, data, statusEl){
+  if(data.company){ return true; } // honeypot — silently drop bots
+  try{
+    const r = await fetch(LEAD_ENDPOINT, {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({type, ...data, source: location.href})
+    });
+    if(!r.ok) throw new Error("bad status");
+    return true;
+  }catch(e){
+    if(statusEl) statusEl.textContent = "Demo mode: backend not connected yet — this lead was not saved. See README to connect Supabase.";
+    return false;
+  }
+}
+document.querySelectorAll("form[data-type]").forEach(form=>{
+  form.addEventListener("submit", async e=>{
+    e.preventDefault();
+    const status = form.parentElement.querySelector("[data-status]") || form.querySelector("[data-status]");
+    const data = Object.fromEntries(new FormData(form));
+    const btn = form.querySelector("button[type=submit]");
+    btn.disabled = true; btn.textContent = "Sending…";
+    const ok = await sendLead(form.dataset.type, data, status);
+    btn.disabled = false;
+    if(ok){ form.reset(); btn.textContent = "Sent! Kyla will be in touch ✓"; setTimeout(()=>btn.textContent = form.dataset.type==="home_value" ? "Send my report" : "Send message", 4000); }
+    else{ btn.textContent = "Try again"; }
+  });
+});
+
+/* ================= BUYER / SELLER FUNNEL ================= */
+const FUNNELS = {
+  buyer:{
+    eyebrow:"Buying", title:"Let's find your home", sub:"Three quick questions, then Kyla takes it from here.",
+    steps:[
+      {label:"When are you hoping to buy?", opts:["ASAP — I'm ready","1–3 months","3–6 months","Just exploring"]},
+      {label:"What's your budget range?", opts:["Under $400k","$400k – $550k","$550k – $750k","$750k+","Not sure yet"]},
+    ]
+  },
+  seller:{
+    eyebrow:"Selling", title:"Let's get your home sold", sub:"Three quick questions, then Kyla builds your plan.",
+    steps:[
+      {label:"When do you want to sell?", opts:["ASAP","1–3 months","3–6 months","Just curious what it's worth"]},
+      {label:"What best describes your home?", opts:["Single family","Townhome / condo","Acreage or horse property","Investment property"]},
+    ]
+  }
+};
+let funnelType = null, funnelStep = 0, funnelAnswers = {};
+
+function openFunnel(type){
+  funnelType = type; funnelStep = 0; funnelAnswers = {};
+  const f = FUNNELS[type];
+  document.getElementById("mEyebrow").textContent = f.eyebrow;
+  document.getElementById("mTitle").textContent = f.title;
+  document.getElementById("mSub").textContent = f.sub;
+  document.getElementById("funnelDone").classList.remove("on");
+  document.getElementById("funnelForm").style.display = "";
+  f.steps.forEach((s,i)=>{
+    const el = document.querySelector(`.step[data-step="${i}"]`);
+    el.innerHTML = `<label>${s.label}</label><div class="opts">` +
+      s.opts.map(o=>`<button type="button" class="opt" onclick="pickOpt(this,${i},'${o.replace(/'/g,"\\'")}')">${o}</button>`).join("") + `</div>`;
+  });
+  showStep(0);
+  document.getElementById("modal").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeFunnel(){
+  document.getElementById("modal").classList.remove("open");
+  document.body.style.overflow = "";
+}
+document.getElementById("modal").addEventListener("click", e=>{ if(e.target.id==="modal") closeFunnel(); });
+addEventListener("keydown", e=>{ if(e.key==="Escape") closeFunnel(); });
+
+function pickOpt(btn, step, val){
+  btn.parentElement.querySelectorAll(".opt").forEach(o=>o.classList.remove("sel"));
+  btn.classList.add("sel");
+  funnelAnswers["q"+(step+1)] = val;
+  setTimeout(()=>stepFunnel(1), 220);
+}
+function showStep(i){
+  funnelStep = i;
+  document.querySelectorAll(".step").forEach(s=>s.classList.toggle("on", +s.dataset.step===i));
+  document.querySelectorAll(".dot").forEach((d,di)=>d.classList.toggle("on", di<=i));
+  document.getElementById("backBtn").style.visibility = i===0 ? "hidden":"visible";
+  document.getElementById("nextBtn").textContent = i===2 ? "Send to Kyla" : "Next";
+}
+async function stepFunnel(dir){
+  if(dir===1 && funnelStep===2){
+    const form = document.getElementById("funnelForm");
+    if(!form.reportValidity()) return;
+    const status = form.querySelector("[data-status]");
+    const contact = Object.fromEntries(new FormData(form));
+    const nb = document.getElementById("nextBtn");
+    nb.disabled = true; nb.textContent = "Sending…";
+    const ok = await sendLead(funnelType, {...funnelAnswers, ...contact}, status);
+    nb.disabled = false; nb.textContent = "Send to Kyla";
+    if(ok){ form.style.display="none"; document.getElementById("funnelDone").classList.add("on"); }
+    return;
+  }
+  const next = Math.min(2, Math.max(0, funnelStep + dir));
+  showStep(next);
+}
+
+/* misc */
+document.getElementById("yr").textContent = new Date().getFullYear();
+document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click", ()=>document.querySelector(".nav-links").classList.remove("open")));
+</script>
+</body>
+</html>
